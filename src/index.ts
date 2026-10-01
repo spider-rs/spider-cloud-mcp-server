@@ -150,6 +150,7 @@ const crawlParams = {
   filter_images: z.boolean().optional().describe("Filter image elements from markup"),
   filter_main_only: z.boolean().optional().describe("Filter to main content only. Default: enabled"),
   clean_html: z.boolean().optional().describe("Clean HTML of unwanted attributes"),
+  stealth: z.boolean().optional().describe("Use stealth mode for bot-protected pages"),
   proxy_enabled: z.boolean().optional().describe("Enable premium proxies. Multiplies cost by 1.5x"),
   proxy: z.enum(["residential", "mobile", "isp", "datacenter"]).optional().describe("Proxy pool type"),
   remote_proxy: z.string().optional().describe("External proxy connection URL"),
@@ -215,7 +216,7 @@ const scrapeParams = { ...scrapeBase, ...screenshotExtraParams };
 
 const server = new McpServer({
   name: "spider-cloud-mcp",
-  version: "1.2.1",
+  version: "1.3.0",
 });
 
 // === Core Tools ===
@@ -310,16 +311,6 @@ server.tool(
   },
   async (params) => {
     const data = await apiRequest("POST", "/screenshot", params as Record<string, unknown>, { stream: true });
-    return { content: [{ type: "text" as const, text: formatResult(data) }] };
-  }
-);
-
-server.tool(
-  "spider_unblocker",
-  "Access blocked or protected content with advanced anti-bot bypass. Uses enhanced fingerprinting and proxy rotation. Adds 10-40 extra credits per successful unblock.",
-  scrapeParams,
-  async (params) => {
-    const data = await apiRequest("POST", "/unblocker", params as Record<string, unknown>, { stream: true });
     return { content: [{ type: "text" as const, text: formatResult(data) }] };
   }
 );

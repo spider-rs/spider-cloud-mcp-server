@@ -69,7 +69,6 @@ Add to your Cursor MCP settings:
 | `spider_search` | Search the web with optional page content fetching |
 | `spider_links` | Extract all links from a page |
 | `spider_screenshot` | Capture page screenshots |
-| `spider_unblocker` | Access bot-protected content with anti-bot bypass |
 | `spider_transform` | Transform HTML to markdown/text/other formats |
 | `spider_get_credits` | Check your credit balance |
 
