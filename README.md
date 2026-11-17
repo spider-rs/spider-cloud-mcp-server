@@ -1,6 +1,6 @@
 # spider-cloud-mcp
 
-MCP server for the [Spider](https://spider.cloud) web crawling and scraping API. Crawl, scrape, search, and extract web data for AI agents, RAG pipelines, and LLMs.
+MCP server for the [Spider](https://spider.cloud) web crawling and [scraping API](https://spider.cloud/api/scrape/?utm_source=github&utm_medium=readme&utm_campaign=spider-cloud-mcp-server). Crawl, scrape, search, and extract web data for AI agents, RAG pipelines, and LLMs.
 
 ## Setup
 
